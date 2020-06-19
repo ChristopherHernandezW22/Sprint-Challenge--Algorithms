@@ -5,6 +5,25 @@ Your function must utilize recursion. It cannot contain any loops.
 '''
 def count_th(word):
     
+    count = 0
+    def recursion(next_word):
+        index = next_word.find('th')
+        if index != -1:
+            nonlocal count
+            count += 1
+            if len(next_word) >= index + 4:
+                spliced = next_word[index+2:]
+                recursion(spliced)
+        else:
+            return
+        pass
+
+    recursion(word)
+    
+
     # TBC
     
-    pass
+    return count
+
+
+count_th("mathath")
